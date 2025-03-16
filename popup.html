@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Microsoft Rewards Search Automator</title>
+  <style>
+    body {
+      width: 300px;
+      font-family: Arial, sans-serif;
+      padding: 0;
+      margin: 0;
+    }
+    .custom-range {
+      padding: 10px;
+      background-color: #f7f7f7;
+      border-radius: 5px;
+      margin: 10px;
+    }
+    .custom-range label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 12px;
+      color: #444;
+    }
+    .custom-range input[type="range"] {
+      width: 100%;
+      margin-bottom: 12px;
+    }
+    .search-button {
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+      margin-top: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .stop-button {
+      background-color: #d70000;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+      margin-top: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      display: none;
+    }
+    .progress-bar {
+      height: 10px;
+      width: 100%;
+      background-color: #eee;
+      border-radius: 5px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background-color: #0078d7;
+      transition: width 0.3s;
+    }
+    .progress-text {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 5px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="custom-range">
+    <label for="desktop-range">Desktop searches: <span id="desktop-range-value">10</span></label>
+    <input type="range" id="desktop-range" min="0" max="50" value="10" step="1">
+    <label for="mobile-range">Mobile searches: <span id="mobile-range-value">0</span></label>
+    <input type="range" id="mobile-range" min="0" max="30" value="0" step="1">
+  </div>
+  
+  <div class="custom-range">
+    <label for="min-delay-range">Min delay (seconds): <span id="min-delay-range-value">1</span></label>
+    <input type="range" id="min-delay-range" min="1" max="5" value="1" step="1">
+    <label for="max-delay-range">Max delay (seconds): <span id="max-delay-range-value">5</span></label>
+    <input type="range" id="max-delay-range" min="1" max="15" value="5" step="1">
+  </div>
+  
+  <div style="padding: 0 10px;">
+    <button class="search-button" id="search-btn">Search</button>
+    <button class="stop-button" id="stop-btn">Stop</button>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+    <div class="progress-text" id="progress-text"></div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
